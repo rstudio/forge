@@ -49,6 +49,21 @@ mold_scalar_character <- function(x, allow_na = FALSE, allow_null = FALSE) {
   mold_character(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
+
+#' @rdname mold
+#' @export
+mold_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+  if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
+  if (!is.logical(x)) stop("`x` must be a logical vector.")
+  x
+}
+
+#' @rdname mold
+#' @export
+mold_scalar_boolean <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  mold_boolean(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+}
+
 #' @rdname mold
 #' @export
 mold_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE) {

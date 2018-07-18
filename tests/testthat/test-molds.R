@@ -46,3 +46,12 @@ test_that("mold_choice() works properly", {
   expect_error(mold_choice("foo", c("bar", "baz")), "`x` must be one of bar, baz\\.")
   expect_error(mold_choice("foo", c(TRUE, FALSE)), "`choices` must be a vector of numbers or strings\\.")
 })
+
+test_that("mold_boolean() works properly", {
+  expect_identical(mold_boolean(TRUE), TRUE)
+  expect_identical(mold_boolean(FALSE), FALSE)
+
+  expect_error(mold_boolean(0), "`x` must be a logical vector\\.")
+  expect_error(mold_scalar_boolean(c(TRUE, FALSE)),
+               "`x` must be of length 1, but is of length 2\\.")
+})
