@@ -1,6 +1,7 @@
 
 [![Travis build
-status](https://travis-ci.org/kevinykuo/forge.svg?branch=master)](https://travis-ci.org/kevinykuo/forge)
+status](https://travis-ci.org/kevinykuo/forge.svg?branch=master)](https://travis-ci.org/kevinykuo/forge)[![Coverage
+status](https://codecov.io/gh/kevinykuo/forge/branch/master/graph/badge.svg)](https://codecov.io/github/kevinykuo/forge?branch=master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
