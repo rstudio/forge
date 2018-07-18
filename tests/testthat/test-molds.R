@@ -33,3 +33,16 @@ test_that("mold_character() works properly", {
 
   expect_error(mold_scalar_character(c("foo", "bar")), "`x` must be of length 1, but is of length 2\\.")
 })
+
+test_that("mold_choice() works properly", {
+  expect_identical(mold_choice(2, 1:3), 2L)
+  expect_identical(mold_choice(2, c(1, 2, 3)), 2)
+  expect_identical(mold_choice("foo", c("foo", "bar")), "foo")
+  expect_identical(mold_choice(NA, letters, allow_na = TRUE), NA)
+  expect_identical(mold_choice(NULL, letters, allow_null = TRUE), NULL)
+
+  expect_error(mold_choice(NA, letters), "`x` must not be NA\\.")
+  expect_error(mold_choice(NULL, letters), "`x` must not be NULL\\.")
+  expect_error(mold_choice("foo", c("bar", "baz")), "`x` must be one of bar, baz\\.")
+  expect_error(mold_choice("foo", c(TRUE, FALSE)), "`choices` must be a vector of numbers or strings\\.")
+})

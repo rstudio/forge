@@ -8,6 +8,7 @@
 \alias{mold_scalar_double}
 \alias{mold_character}
 \alias{mold_scalar_character}
+\alias{mold_choice}
 \title{Mold values into shape}
 \usage{
 mold_integer(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
@@ -21,6 +22,8 @@ mold_scalar_double(x, allow_na = FALSE, allow_null = FALSE)
 mold_character(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
 mold_scalar_character(x, allow_na = FALSE, allow_null = FALSE)
+
+mold_choice(x, choices, allow_na = FALSE, allow_null = FALSE)
 }
 \arguments{
 \item{x}{A vector.}
@@ -29,7 +32,9 @@ mold_scalar_character(x, allow_na = FALSE, allow_null = FALSE)
 
 \item{allow_na}{Whether to allow \code{NA}s in the vector.}
 
-\item{allow_null}{Whether to allow \code{NULL}}
+\item{allow_null}{Whether to allow \code{NULL}.}
+
+\item{choices}{A character, numeric, or integer vector of allowed values.}
 }
 \description{
 These functions verify and attempt to coerce values into the specified types and shapes. If they
