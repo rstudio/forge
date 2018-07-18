@@ -1,7 +1,7 @@
 ---
 output: github_document
 ---
-[![Travis build status](https://travis-ci.org/kevinykuo/forge.svg?branch=master)](https://travis-ci.org/kevinykuo/forge)[![Coverage status](https://codecov.io/gh/kevinykuo/forge/branch/master/graph/badge.svg)](https://codecov.io/github/kevinykuo/forge?branch=master)
+[![Travis build status](https://travis-ci.org/kevinykuo/forge.svg?branch=master)](https://travis-ci.org/kevinykuo/forge)[![Coverage status](https://codecov.io/gh/kevinykuo/forge/branch/master/graph/badge.svg)](https://codecov.io/github/kevinykuo/forge?branch=master)[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/kevinykuo/forge?branch=master&svg=true)](https://ci.appveyor.com/project/kevinykuo/forge)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
