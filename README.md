@@ -17,6 +17,23 @@ You can install the development version from GitHub with
 devtools::install_github("kevinykuo/camp")
 ```
 
+## Examples
+
+``` r
+library(sparklyr)
+sc <- spark_connect(master = "local")
+
+spark_vector <- function(sc, x) {
+  v <- as.list(camp::mold_double(x))
+  invoke_new(sc, "org.apache.spark.ml.linalg.DenseVector", v)
+}
+
+spark_vector(sc, 1:3)
+#> <jobj[9]>
+#>   org.apache.spark.ml.linalg.DenseVector
+#>   [1.0,2.0,3.0]
+```
+
 -----
 
 Please note that the ‘camp’ project is released with a [Contributor Code
