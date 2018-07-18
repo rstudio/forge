@@ -1,4 +1,4 @@
-#' Mold values into shape
+#' Cast values into shape
 #'
 #' These functions verify and attempt to coerce values into the specified types and shapes. If they
 #'   are unsuccessful in the coercion, an error is thrown.
@@ -8,71 +8,71 @@
 #' @param allow_na Whether to allow \code{NA}s in the vector.
 #' @param allow_null Whether to allow \code{NULL}.
 #' @param choices A character, numeric, or integer vector of allowed values.
-#' @name mold
+#' @name cast
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
   rlang::as_integer(x)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_scalar_integer <- function(x, allow_na = FALSE, allow_null = FALSE) {
-  mold_integer(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+cast_scalar_integer <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  cast_integer(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
   rlang::as_double(x)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_scalar_double <- function(x, allow_na = FALSE, allow_null = FALSE) {
-  mold_double(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+cast_scalar_double <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  cast_double(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+cast_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
   rlang::as_character(x)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_scalar_character <- function(x, allow_na = FALSE, allow_null = FALSE) {
-  mold_character(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+cast_scalar_character <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  cast_character(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+cast_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
   if (!is.logical(x)) stop("`x` must be a logical vector.")
   x
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_scalar_boolean <- function(x, allow_na = FALSE, allow_null = FALSE) {
-  mold_boolean(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+cast_scalar_boolean <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  cast_boolean(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
-#' @rdname mold
+#' @rdname cast
 #' @export
-mold_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE) {
-  mold <- switch(rlang::type_of(choices),
-                 integer = mold_scalar_integer,
-                 double = mold_scalar_double,
-                 string = mold_scalar_character,
-                 character = mold_scalar_character)
-  if (is.null(mold)) stop("`choices` must be a vector of numbers or strings.",
+cast_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE) {
+  cast <- switch(rlang::type_of(choices),
+                 integer = cast_scalar_integer,
+                 double = cast_scalar_double,
+                 string = cast_scalar_character,
+                 character = cast_scalar_character)
+  if (is.null(cast)) stop("`choices` must be a vector of numbers or strings.",
                           call. = FALSE)
 
   if (rlang::is_na(x)) {
@@ -83,9 +83,9 @@ mold_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE) {
     if (allow_null) return(x) else stop("`x` must not be NULL.", call. = FALSE)
   }
 
-  molded <- mold(x)
+  casted <- cast(x)
 
-  if (molded %in% choices) molded else
+  if (casted %in% choices) casted else
     stop("`x` must be one of ", paste0(choices, collapse = ", "), ".",
          call. = FALSE)
 }

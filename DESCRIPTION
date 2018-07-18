@@ -1,6 +1,6 @@
-Package: camp
+Package: forge
 Type: Package
-Title: Molding Values into Shape
+Title: Casting Values into Shape
 Version: 0.1.0
 Authors@R: c(
   person("Kevin", "Kuo", role = c("aut", "cre"), email = "kevin.kuo@rstudio.com",

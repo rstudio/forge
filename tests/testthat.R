@@ -1,4 +1,4 @@
 library(testthat)
-library(camp)
+library(forge)
 
-test_check("camp")
+test_check("forge")
