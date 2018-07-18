@@ -1,0 +1,21 @@
+Package: camp
+Type: Package
+Title: Molding Values into Shape
+Version: 0.1.0
+Authors@R: c(
+  person("Kevin", "Kuo", role = c("aut", "cre"), email = "kevin.kuo@rstudio.com",
+  comment = c(ORCID = "0000-0001-7803-7901"))
+  )
+Description: Helper functions with a consistent interface to coerce and verify
+    the types and shapes of values.
+License: Apache License (>= 2.0)
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 3.1.2)
+Imports: 
+    rlang
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1
+Suggests: 
+    testthat
