@@ -16,3 +16,9 @@ You can install the development version from GitHub with
 ``` r
 devtools::install_github("kevinykuo/camp")
 ```
+
+-----
+
+Please note that the ‘camp’ project is released with a [Contributor Code
+of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
+project, you agree to abide by its terms.
