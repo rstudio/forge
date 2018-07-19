@@ -13,7 +13,9 @@
 #' @rdname cast
 #' @export
 cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
-  if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
+  if (is.null(x) && allow_null) return(x)
+  x <- if (rlang::is_bare_list(x)) rlang::flatten_int(x) else x
+  verify_length_na(x, n, allow_na)
   rlang::as_integer(x)
 }
 
@@ -26,7 +28,9 @@ cast_scalar_integer <- function(x, allow_na = FALSE, allow_null = FALSE) {
 #' @rdname cast
 #' @export
 cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
-  if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
+  if (is.null(x) && allow_null) return(x)
+  x <- if (rlang::is_bare_list(x)) rlang::flatten_dbl(x) else x
+  verify_length_na(x, n, allow_na)
   rlang::as_double(x)
 }
 
@@ -39,7 +43,9 @@ cast_scalar_double <- function(x, allow_na = FALSE, allow_null = FALSE) {
 #' @rdname cast
 #' @export
 cast_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
-  if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
+  if (is.null(x) && allow_null) return(x)
+  x <- if (rlang::is_bare_list(x)) rlang::flatten_chr(x) else x
+  verify_length_na(x, n, allow_na)
   rlang::as_character(x)
 }
 
@@ -54,6 +60,7 @@ cast_scalar_character <- function(x, allow_na = FALSE, allow_null = FALSE) {
 #' @export
 cast_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
+  x <- if (rlang::is_bare_list(x)) rlang::flatten_lgl(x) else x
   if (!is.logical(x)) stop("`x` must be a logical vector.")
   x
 }

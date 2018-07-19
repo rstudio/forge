@@ -5,6 +5,7 @@ test_that("cast_integer() works properly", {
   expect_identical(cast_integer(42), 42L)
   expect_identical(cast_integer(NULL, allow_null = TRUE), NULL)
   expect_identical(cast_integer(c(2, NA), allow_na = TRUE), c(2L, NA))
+  expect_identical(cast_integer(list(1, 2)), 1:2)
 
   expect_error(cast_integer(NULL), "`x` must not be NULL\\.")
   expect_error(cast_integer(1:3, 2), "`x` must be of length 2, but is of length 3\\.")
@@ -20,6 +21,7 @@ test_that("cast_double() works properly", {
   expect_identical(cast_double(42.5), 42.5)
   expect_identical(cast_double(c(2.4, NA), allow_na = TRUE), c(2.4, NA))
   expect_identical(cast_double(NULL, allow_null = TRUE), NULL)
+  expect_identical(cast_double(list(1, 2)), c(1, 2))
 
   expect_error(cast_double(NULL), "`x` must not be NULL\\.")
   expect_error(cast_double(1:3, 2), "`x` must be of length 2, but is of length 3\\.")
@@ -32,6 +34,7 @@ test_that("cast_character() works properly", {
   expect_identical(cast_character(c("foo", "bar")), c("foo", "bar"))
   expect_identical(cast_scalar_character("foo"), "foo")
   expect_identical(cast_character(NULL, allow_null = TRUE), NULL)
+  expect_identical(cast_character(list("foo", "bar")), c("foo", "bar"))
 
   expect_error(cast_scalar_character(c("foo", "bar")), "`x` must be of length 1, but is of length 2\\.")
 })
