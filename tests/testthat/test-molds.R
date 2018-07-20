@@ -54,7 +54,7 @@ test_that("cast_character() works properly", {
   expect_identical(cast_nullable_character(NULL), NULL)
   expect_identical(cast_nullable_scalar_character(NULL), NULL)
   expect_identical(cast_string("foo"), "foo")
-  expect_identical(cast_nullabe_string(NULL), NULL)
+  expect_identical(cast_nullable_string(NULL), NULL)
   expect_identical(cast_character_list(c("foo", "bar")), list("foo", "bar"))
   expect_identical(cast_nullable_character_list(NULL), NULL)
   expect_identical(cast_nullable_character_list(c("foo", "bar")), list("foo", "bar"))

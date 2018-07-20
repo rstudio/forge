@@ -133,7 +133,7 @@ cast_string <- cast_scalar_character
 
 #' @rdname cast
 #' @export
-cast_nullabe_string <- cast_nullable_scalar_character
+cast_nullable_string <- cast_nullable_scalar_character
 
 #' @rdname cast
 #' @export

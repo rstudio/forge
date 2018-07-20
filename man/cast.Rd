@@ -21,7 +21,7 @@
 \alias{cast_character_list}
 \alias{cast_nullable_character_list}
 \alias{cast_string}
-\alias{cast_nullabe_string}
+\alias{cast_nullable_string}
 \alias{cast_string_list}
 \alias{cast_nullable_string_list}
 \alias{cast_logical}
@@ -71,7 +71,7 @@ cast_nullable_character_list(x, n = NULL, allow_na = FALSE)
 
 cast_string(x, allow_na = FALSE, allow_null = FALSE)
 
-cast_nullabe_string(x, allow_na = FALSE)
+cast_nullable_string(x, allow_na = FALSE)
 
 cast_string_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
