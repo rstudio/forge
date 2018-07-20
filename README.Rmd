@@ -33,7 +33,7 @@ library(sparklyr)
 sc <- spark_connect(master = "local")
 
 spark_vector <- function(sc, x) {
-  v <- as.list(forge::cast_double(x))
+  v <- forge::cast_double_list(x)
   invoke_new(sc, "org.apache.spark.ml.linalg.DenseVector", v)
 }
 
