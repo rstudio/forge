@@ -8,6 +8,8 @@ test_that("cast_integer() works properly", {
   expect_identical(cast_integer(list(1, 2)), 1:2)
   expect_identical(cast_nullable_scalar_integer(42), 42L)
   expect_identical(cast_nullable_scalar_integer(NULL), NULL)
+  expect_identical(cast_nullable_integer(NULL), NULL)
+  expect_identical(cast_nullable_integer(42), 42L)
 
   expect_error(cast_integer(NULL), "`x` must not be NULL\\.")
   expect_error(cast_integer(1:3, 2), "`x` must be of length 2, but is of length 3\\.")
@@ -71,6 +73,8 @@ test_that("cast_logical() works properly", {
   expect_identical(cast_logical(FALSE), FALSE)
   expect_identical(cast_logical(NULL, allow_null = TRUE), NULL)
   expect_identical(cast_nullable_scalar_logical(NULL), NULL)
+  expect_identical(cast_nullable_logical(NULL), NULL)
+  expect_identical(cast_nullable_logical(TRUE), TRUE)
 
   expect_error(cast_logical(0), "`x` must be a logical vector\\.")
   expect_error(cast_scalar_logical(c(TRUE, FALSE)),
