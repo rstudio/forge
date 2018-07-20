@@ -4,12 +4,20 @@
 \alias{cast}
 \alias{cast_integer}
 \alias{cast_scalar_integer}
+\alias{cast_nullable_integer}
+\alias{cast_nullable_scalar_integer}
 \alias{cast_double}
 \alias{cast_scalar_double}
+\alias{cast_nullable_double}
+\alias{cast_nullable_scalar_double}
 \alias{cast_character}
 \alias{cast_scalar_character}
-\alias{cast_boolean}
-\alias{cast_scalar_boolean}
+\alias{cast_nullable_character}
+\alias{cast_nullable_scalar_character}
+\alias{cast_logical}
+\alias{cast_scalar_logical}
+\alias{cast_nullable_logical}
+\alias{cast_nullable_scalar_logical}
 \alias{cast_choice}
 \title{Cast values into shape}
 \usage{
@@ -17,17 +25,33 @@ cast_integer(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
 cast_scalar_integer(x, allow_na = FALSE, allow_null = FALSE)
 
+cast_nullable_integer(x, n = NULL, allow_na = FALSE)
+
+cast_nullable_scalar_integer(x, allow_na = FALSE)
+
 cast_double(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
 cast_scalar_double(x, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_double(x, n = NULL, allow_na = FALSE)
+
+cast_nullable_scalar_double(x, allow_na = FALSE)
 
 cast_character(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
 cast_scalar_character(x, allow_na = FALSE, allow_null = FALSE)
 
-cast_boolean(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+cast_nullable_character(x, n = NULL, allow_na = FALSE)
 
-cast_scalar_boolean(x, allow_na = FALSE, allow_null = FALSE)
+cast_nullable_scalar_character(x, allow_na = FALSE)
+
+cast_logical(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_scalar_logical(x, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_logical(x, n = NULL, allow_na = FALSE)
+
+cast_nullable_scalar_logical(x, allow_na = FALSE)
 
 cast_choice(x, choices, allow_na = FALSE, allow_null = FALSE)
 }

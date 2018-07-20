@@ -27,6 +27,18 @@ cast_scalar_integer <- function(x, allow_na = FALSE, allow_null = FALSE) {
 
 #' @rdname cast
 #' @export
+cast_nullable_integer <- function(x, n = NULL, allow_na = FALSE) {
+  cast_integer(x, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_scalar_integer <- function(x, allow_na = FALSE) {
+  cast_integer(x, n = 1, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
 cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x)
   x <- if (rlang::is_bare_list(x)) rlang::flatten_dbl(x) else x
@@ -38,6 +50,18 @@ cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
 #' @export
 cast_scalar_double <- function(x, allow_na = FALSE, allow_null = FALSE) {
   cast_double(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_double <- function(x, n = NULL, allow_na = FALSE) {
+  cast_double(x, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_scalar_double <- function(x, allow_na = FALSE) {
+  cast_double(x, n = 1, allow_na = allow_na, allow_null = TRUE)
 }
 
 #' @rdname cast
@@ -55,10 +79,22 @@ cast_scalar_character <- function(x, allow_na = FALSE, allow_null = FALSE) {
   cast_character(x, n = 1, allow_na = allow_na, allow_null = allow_null)
 }
 
+#' @rdname cast
+#' @export
+cast_nullable_character <- function(x, n = NULL, allow_na = FALSE) {
+  cast_character(x, allow_na = allow_na, allow_null = TRUE)
+}
 
 #' @rdname cast
 #' @export
-cast_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+cast_nullable_scalar_character <- function(x, allow_na = FALSE) {
+  cast_character(x, n = 1, allow_na = allow_na, allow_null = TRUE)
+}
+
+
+#' @rdname cast
+#' @export
+cast_logical <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x) else verify_length_na(x, n, allow_na)
   x <- if (rlang::is_bare_list(x)) rlang::flatten_lgl(x) else x
   if (!is.logical(x)) stop("`x` must be a logical vector.")
@@ -67,8 +103,20 @@ cast_boolean <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
 
 #' @rdname cast
 #' @export
-cast_scalar_boolean <- function(x, allow_na = FALSE, allow_null = FALSE) {
-  cast_boolean(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+cast_scalar_logical <- function(x, allow_na = FALSE, allow_null = FALSE) {
+  cast_logical(x, n = 1, allow_na = allow_na, allow_null = allow_null)
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_logical <- function(x, n = NULL, allow_na = FALSE) {
+  cast_logical(x, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_scalar_logical <- function(x, allow_na = FALSE) {
+  cast_logical(x, n = 1, allow_na = allow_na, allow_null = TRUE)
 }
 
 #' @rdname cast
