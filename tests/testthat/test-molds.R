@@ -45,9 +45,12 @@ test_that("cast_character() works properly", {
   expect_identical(cast_character(list("foo", "bar")), c("foo", "bar"))
   expect_identical(cast_nullable_character(NULL), NULL)
   expect_identical(cast_nullable_scalar_character(NULL), NULL)
+  expect_identical(cast_string("foo"), "foo")
+  expect_identical(cast_nullabe_string(NULL), NULL)
 
   expect_error(cast_scalar_character(c("foo", "bar")), "`x` must be of length 1, but is of length 2\\.")
   expect_error(cast_nullable_scalar_character(letters[1:3]), "`x` must be of length 1, but is of length 3\\.")
+  expect_error(cast_string(c("foo", "bar")), "`x` must be of length 1, but is of length 2\\.")
 })
 
 test_that("cast_choice() works properly", {

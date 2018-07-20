@@ -14,6 +14,8 @@
 \alias{cast_scalar_character}
 \alias{cast_nullable_character}
 \alias{cast_nullable_scalar_character}
+\alias{cast_string}
+\alias{cast_nullabe_string}
 \alias{cast_logical}
 \alias{cast_scalar_logical}
 \alias{cast_nullable_logical}
@@ -44,6 +46,10 @@ cast_scalar_character(x, allow_na = FALSE, allow_null = FALSE)
 cast_nullable_character(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_character(x, allow_na = FALSE)
+
+cast_string(x, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullabe_string(x, allow_na = FALSE)
 
 cast_logical(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 

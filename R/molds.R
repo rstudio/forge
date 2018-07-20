@@ -91,6 +91,14 @@ cast_nullable_scalar_character <- function(x, allow_na = FALSE) {
   cast_character(x, n = 1, allow_na = allow_na, allow_null = TRUE)
 }
 
+#' @rdname cast
+#' @export
+cast_string <- cast_scalar_character
+
+#' @rdname cast
+#' @export
+cast_nullabe_string <- cast_nullable_scalar_character
+
 
 #' @rdname cast
 #' @export
