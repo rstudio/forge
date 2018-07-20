@@ -18,3 +18,7 @@ verify_length <- function(x, n) {
   if (length_x != n) stop("`x` must be of length ", n, ", but is of length ", length_x, ".",
                           call. = FALSE)
 }
+
+as_nullable_list <- function(x) {
+  if (is.null(x)) return(x) else rlang::as_list(x)
+}

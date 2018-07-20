@@ -6,20 +6,30 @@
 \alias{cast_scalar_integer}
 \alias{cast_nullable_integer}
 \alias{cast_nullable_scalar_integer}
+\alias{cast_integer_list}
+\alias{cast_nullable_integer_list}
 \alias{cast_double}
 \alias{cast_scalar_double}
 \alias{cast_nullable_double}
 \alias{cast_nullable_scalar_double}
+\alias{cast_double_list}
+\alias{cast_nullable_double_list}
 \alias{cast_character}
 \alias{cast_scalar_character}
 \alias{cast_nullable_character}
 \alias{cast_nullable_scalar_character}
+\alias{cast_character_list}
+\alias{cast_nullable_character_list}
 \alias{cast_string}
 \alias{cast_nullabe_string}
+\alias{cast_string_list}
+\alias{cast_nullable_string_list}
 \alias{cast_logical}
 \alias{cast_scalar_logical}
 \alias{cast_nullable_logical}
 \alias{cast_nullable_scalar_logical}
+\alias{cast_logical_list}
+\alias{cast_nullable_logical_list}
 \alias{cast_choice}
 \title{Cast values into shape}
 \usage{
@@ -31,6 +41,10 @@ cast_nullable_integer(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_integer(x, allow_na = FALSE)
 
+cast_integer_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_integer_list(x, n = NULL, allow_na = FALSE)
+
 cast_double(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
 cast_scalar_double(x, allow_na = FALSE, allow_null = FALSE)
@@ -38,6 +52,10 @@ cast_scalar_double(x, allow_na = FALSE, allow_null = FALSE)
 cast_nullable_double(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_double(x, allow_na = FALSE)
+
+cast_double_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_double_list(x, n = NULL, allow_na = FALSE)
 
 cast_character(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
@@ -47,9 +65,17 @@ cast_nullable_character(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_character(x, allow_na = FALSE)
 
+cast_character_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_character_list(x, n = NULL, allow_na = FALSE)
+
 cast_string(x, allow_na = FALSE, allow_null = FALSE)
 
 cast_nullabe_string(x, allow_na = FALSE)
+
+cast_string_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_string_list(x, n = NULL, allow_na = FALSE)
 
 cast_logical(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
 
@@ -58,6 +84,10 @@ cast_scalar_logical(x, allow_na = FALSE, allow_null = FALSE)
 cast_nullable_logical(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_logical(x, allow_na = FALSE)
+
+cast_logical_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+
+cast_nullable_logical_list(x, n = NULL, allow_na = FALSE)
 
 cast_choice(x, choices, allow_na = FALSE, allow_null = FALSE)
 }

@@ -39,6 +39,18 @@ cast_nullable_scalar_integer <- function(x, allow_na = FALSE) {
 
 #' @rdname cast
 #' @export
+cast_integer_list <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+  as_nullable_list(cast_integer(x, n, allow_na, allow_null))
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_integer_list <- function(x, n = NULL, allow_na = FALSE) {
+  as_nullable_list(cast_nullable_integer(x, n, allow_na))
+}
+
+#' @rdname cast
+#' @export
 cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x)
   x <- if (rlang::is_bare_list(x)) rlang::flatten_dbl(x) else x
@@ -62,6 +74,18 @@ cast_nullable_double <- function(x, n = NULL, allow_na = FALSE) {
 #' @export
 cast_nullable_scalar_double <- function(x, allow_na = FALSE) {
   cast_double(x, n = 1, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
+cast_double_list <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+  as_nullable_list(cast_double(x, n, allow_na, allow_null))
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_double_list <- function(x, n = NULL, allow_na = FALSE) {
+  as_nullable_list(cast_nullable_double(x, n, allow_na))
 }
 
 #' @rdname cast
@@ -93,12 +117,31 @@ cast_nullable_scalar_character <- function(x, allow_na = FALSE) {
 
 #' @rdname cast
 #' @export
+cast_character_list <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+  as_nullable_list(cast_character(x, n, allow_na, allow_null))
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_character_list <- function(x, n = NULL, allow_na = FALSE) {
+  as_nullable_list(cast_nullable_character(x, n, allow_na))
+}
+
+#' @rdname cast
+#' @export
 cast_string <- cast_scalar_character
 
 #' @rdname cast
 #' @export
 cast_nullabe_string <- cast_nullable_scalar_character
 
+#' @rdname cast
+#' @export
+cast_string_list <- cast_character_list
+
+#' @rdname cast
+#' @export
+cast_nullable_string_list <- cast_nullable_character_list
 
 #' @rdname cast
 #' @export
@@ -125,6 +168,18 @@ cast_nullable_logical <- function(x, n = NULL, allow_na = FALSE) {
 #' @export
 cast_nullable_scalar_logical <- function(x, allow_na = FALSE) {
   cast_logical(x, n = 1, allow_na = allow_na, allow_null = TRUE)
+}
+
+#' @rdname cast
+#' @export
+cast_logical_list <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
+  as_nullable_list(cast_logical(x, n, allow_na, allow_null))
+}
+
+#' @rdname cast
+#' @export
+cast_nullable_logical_list <- function(x, n = NULL, allow_na = FALSE) {
+  as_nullable_list(cast_nullable_logical(x, n, allow_na))
 }
 
 #' @rdname cast
