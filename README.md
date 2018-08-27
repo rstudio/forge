@@ -9,10 +9,17 @@ status](https://ci.appveyor.com/api/projects/status/github/kevinykuo/forge?branc
 
 # forge
 
-Helper functions to mold values into shape for interoperating with other
-language runtimes.
+**forge** provides a set of helper functions for input checking and
+casting. It is intended to be used by package developers to interoperate
+with other language runtimes, such as Python and JVM languages.
 
 ## Installation
+
+You can install **forge** from CRAN with
+
+``` r
+install.packages("forge")
+```
 
 You can install the development version from GitHub with
 
