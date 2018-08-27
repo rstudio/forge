@@ -1,9 +1,9 @@
 
 [![Travis build
-status](https://travis-ci.org/kevinykuo/forge.svg?branch=master)](https://travis-ci.org/kevinykuo/forge)[![Coverage
-status](https://codecov.io/gh/kevinykuo/forge/branch/master/graph/badge.svg)](https://codecov.io/github/kevinykuo/forge?branch=master)[![AppVeyor
+status](https://travis-ci.org/rstudio/forge.svg?branch=master)](https://travis-ci.org/rstudio/forge)[![Coverage
+status](https://codecov.io/gh/rstudio/forge/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/forge?branch=master)[![AppVeyor
 build
-status](https://ci.appveyor.com/api/projects/status/github/kevinykuo/forge?branch=master&svg=true)](https://ci.appveyor.com/project/kevinykuo/forge)
+status](https://ci.appveyor.com/api/projects/status/github/rstudio/forge?branch=master&svg=true)](https://ci.appveyor.com/project/rstudio/forge)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -17,7 +17,7 @@ language runtimes.
 You can install the development version from GitHub with
 
 ``` r
-devtools::install_github("kevinykuo/forge")
+devtools::install_github("rstudio/forge")
 ```
 
 ## Examples
@@ -32,7 +32,7 @@ spark_vector <- function(sc, x) {
 }
 
 spark_vector(sc, 1:3)
-#> <jobj[9]>
+#> <jobj[14]>
 #>   org.apache.spark.ml.linalg.DenseVector
 #>   [1.0,2.0,3.0]
 ```
