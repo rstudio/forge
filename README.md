@@ -3,7 +3,7 @@
 status](https://travis-ci.org/rstudio/forge.svg?branch=master)](https://travis-ci.org/rstudio/forge)[![Coverage
 status](https://codecov.io/gh/rstudio/forge/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/forge?branch=master)[![AppVeyor
 build
-status](https://ci.appveyor.com/api/projects/status/github/rstudio/forge?branch=master&svg=true)](https://ci.appveyor.com/project/rstudio/forge)
+status](https://ci.appveyor.com/api/projects/status/github/kevinykuo/forge?branch=master&svg=true)](https://ci.appveyor.com/project/kevinykuo/forge)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
