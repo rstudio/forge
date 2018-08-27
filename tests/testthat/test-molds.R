@@ -65,6 +65,7 @@ test_that("cast_character() works properly", {
   expect_identical(cast_string_list(c("foo", "bar")), list("foo", "bar"))
   expect_identical(cast_nullable_string_list(NULL), NULL)
   expect_identical(cast_nullable_string_list(c("foo", "bar")), list("foo", "bar"))
+  expect_identical(cast_string(4), "4")
 })
 
 test_that("cast_choice() works properly", {

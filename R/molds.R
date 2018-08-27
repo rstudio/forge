@@ -94,7 +94,7 @@ cast_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE) {
   if (is.null(x) && allow_null) return(x)
   x <- if (rlang::is_bare_list(x)) rlang::flatten_chr(x) else x
   verify_length_na(x, n, allow_na)
-  rlang::as_character(x)
+  rlang::as_character(as.character(x))
 }
 
 #' @rdname cast
