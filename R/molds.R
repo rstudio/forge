@@ -20,6 +20,7 @@
 #' cast_double_list(1:4)
 #'
 #' @name cast
+NULL
 
 #' @rdname cast
 #' @export

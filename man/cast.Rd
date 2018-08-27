@@ -65,7 +65,8 @@ cast_nullable_character(x, n = NULL, allow_na = FALSE)
 
 cast_nullable_scalar_character(x, allow_na = FALSE)
 
-cast_character_list(x, n = NULL, allow_na = FALSE, allow_null = FALSE)
+cast_character_list(x, n = NULL, allow_na = FALSE,
+  allow_null = FALSE)
 
 cast_nullable_character_list(x, n = NULL, allow_na = FALSE)
 
