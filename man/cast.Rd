@@ -106,3 +106,14 @@ cast_choice(x, choices, allow_na = FALSE, allow_null = FALSE)
 These functions verify and attempt to coerce values into the specified types and shapes. If they
 are unsuccessful in the coercion, an error is thrown.
 }
+\examples{
+# Cast a double vector to integer
+cast_integer(c(1, 2))
+
+# Cast a numeric to a string
+cast_string(4.5)
+
+# Cast an integer vector to a list of doubles
+cast_double_list(1:4)
+
+}

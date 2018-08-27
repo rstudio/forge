@@ -8,6 +8,17 @@
 #' @param allow_na Whether to allow \code{NA}s in the vector.
 #' @param allow_null Whether to allow \code{NULL}.
 #' @param choices A character, numeric, or integer vector of allowed values.
+#'
+#' @examples
+#' # Cast a double vector to integer
+#' cast_integer(c(1, 2))
+#'
+#' # Cast a numeric to a string
+#' cast_string(4.5)
+#'
+#' # Cast an integer vector to a list of doubles
+#' cast_double_list(1:4)
+#'
 #' @name cast
 
 #' @rdname cast
