@@ -7,7 +7,7 @@ Authors@R: c(
   comment = c(ORCID = "0000-0001-7803-7901"))
   )
 Description: Helper functions with a consistent interface to coerce and verify
-    the types and shapes of values.
+    the types and shapes of values for input checking.
 License: Apache License (>= 2.0)
 Encoding: UTF-8
 LazyData: true
