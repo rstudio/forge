@@ -96,3 +96,8 @@ test_that("cast_logical() works properly", {
   expect_error(cast_scalar_logical(c(TRUE, FALSE)),
                "`.x` must be of length 1, but is of length 2\\.")
 })
+
+test_that("`.id` argument works", {
+  foo <- 4.5
+  expect_error(cast_scalar_integer(foo), "`foo` cannot be casted to an integer vector\\.")
+})
