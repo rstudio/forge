@@ -19,8 +19,8 @@ lt(.u)
 
 lte(.u)
 
-bounded(.l = NULL, .u = NULL, .incl_lower = FALSE,
-  .incl_upper = FALSE)
+bounded(.l = NULL, .u = NULL, .incl_lower = TRUE,
+  .incl_upper = TRUE)
 }
 \arguments{
 \item{.x}{The value to be checked.}
