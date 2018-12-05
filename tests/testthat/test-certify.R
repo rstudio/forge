@@ -32,3 +32,19 @@ test_that("certify() helper functions work for vector values", {
   expect_identical(c(certify(1:5, between(1, 5))), 1:5)
   expect_error(certify(1:5, between(1, 5, strict = "lower")), "Condition `between\\(1, 5, strict = \"lower\"\\)` not satisfied for `\\.x`\\.")
 })
+
+test_that(".id gets carried through forge pipes", {
+  library(magrittr)
+  foo <- 42
+  expect_error(
+    cast_scalar_integer(foo) %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `foo`\\."
+  )
+
+  expect_error(
+    cast_scalar_integer(foo, .id = "bar") %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `bar`\\."
+  )
+})
