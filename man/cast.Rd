@@ -33,68 +33,82 @@
 \alias{cast_choice}
 \title{Cast values into shape}
 \usage{
-cast_integer(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE)
+cast_integer(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_scalar_integer(.x, .allow_na = FALSE, .allow_null = FALSE)
+cast_scalar_integer(.x, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_nullable_integer(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_integer(.x, .n = NULL, .allow_na = FALSE, .id = NULL)
 
-cast_nullable_scalar_integer(.x, .allow_na = FALSE)
+cast_nullable_scalar_integer(.x, .allow_na = FALSE, .id = NULL)
 
 cast_integer_list(.x, .n = NULL, .allow_na = FALSE,
-  .allow_null = FALSE)
+  .allow_null = FALSE, .id = NULL)
 
-cast_nullable_integer_list(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_integer_list(.x, .n = NULL, .allow_na = FALSE,
+  .id = NULL)
 
-cast_double(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE)
+cast_double(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_scalar_double(.x, .allow_na = FALSE, .allow_null = FALSE)
+cast_scalar_double(.x, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_nullable_double(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_double(.x, .n = NULL, .allow_na = FALSE, .id = NULL)
 
-cast_nullable_scalar_double(.x, .allow_na = FALSE)
+cast_nullable_scalar_double(.x, .allow_na = FALSE, .id = NULL)
 
 cast_double_list(.x, .n = NULL, .allow_na = FALSE,
-  .allow_null = FALSE)
+  .allow_null = FALSE, .id = NULL)
 
-cast_nullable_double_list(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_double_list(.x, .n = NULL, .allow_na = FALSE,
+  .id = NULL)
 
-cast_character(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE)
+cast_character(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_scalar_character(.x, .allow_na = FALSE, .allow_null = FALSE)
+cast_scalar_character(.x, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_nullable_character(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_character(.x, .n = NULL, .allow_na = FALSE, .id = NULL)
 
-cast_nullable_scalar_character(.x, .allow_na = FALSE)
+cast_nullable_scalar_character(.x, .allow_na = FALSE, .id = NULL)
 
 cast_character_list(.x, .n = NULL, .allow_na = FALSE,
-  .allow_null = FALSE)
+  .allow_null = FALSE, .id = NULL)
 
-cast_nullable_character_list(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_character_list(.x, .n = NULL, .allow_na = FALSE,
+  .id = NULL)
 
-cast_string(.x, .allow_na = FALSE, .allow_null = FALSE)
+cast_string(.x, .allow_na = FALSE, .allow_null = FALSE, .id = NULL)
 
-cast_nullable_string(.x, .allow_na = FALSE)
+cast_nullable_string(.x, .allow_na = FALSE, .id = NULL)
 
 cast_string_list(.x, .n = NULL, .allow_na = FALSE,
-  .allow_null = FALSE)
+  .allow_null = FALSE, .id = NULL)
 
-cast_nullable_string_list(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_string_list(.x, .n = NULL, .allow_na = FALSE,
+  .id = NULL)
 
-cast_logical(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE)
+cast_logical(.x, .n = NULL, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_scalar_logical(.x, .allow_na = FALSE, .allow_null = FALSE)
+cast_scalar_logical(.x, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 
-cast_nullable_logical(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_logical(.x, .n = NULL, .allow_na = FALSE, .id = NULL)
 
-cast_nullable_scalar_logical(.x, .allow_na = FALSE)
+cast_nullable_scalar_logical(.x, .allow_na = FALSE, .id = NULL)
 
 cast_logical_list(.x, .n = NULL, .allow_na = FALSE,
-  .allow_null = FALSE)
+  .allow_null = FALSE, .id = NULL)
 
-cast_nullable_logical_list(.x, .n = NULL, .allow_na = FALSE)
+cast_nullable_logical_list(.x, .n = NULL, .allow_na = FALSE,
+  .id = NULL)
 
-cast_choice(.x, .choices, .allow_na = FALSE, .allow_null = FALSE)
+cast_choice(.x, .choices, .allow_na = FALSE, .allow_null = FALSE,
+  .id = NULL)
 }
 \arguments{
 \item{.x}{A vector.}
@@ -104,6 +118,8 @@ cast_choice(.x, .choices, .allow_na = FALSE, .allow_null = FALSE)
 \item{.allow_na}{Whether to allow \code{NA}s in the vector.}
 
 \item{.allow_null}{Whether to allow \code{NULL}.}
+
+\item{.id}{Name given to the input to aid the user in identifying the bad value.}
 
 \item{.choices}{A character, numeric, or integer vector of allowed values.}
 }
