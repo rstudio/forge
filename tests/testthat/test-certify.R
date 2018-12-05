@@ -48,3 +48,10 @@ test_that(".id gets carried through forge pipes", {
     "Condition `gt\\(42\\)` not satisfied for `bar`\\."
   )
 })
+
+test_that("certify() .allow_null argument works", {
+  my_null <- NULL
+  expect_error(cast_nullable_double_list(my_null) %>% certify(bounded(1, 3)),
+               "`.x` must not be NULL\\.")
+  expect_identical(certify(NULL, bounded(1, 3), .allow_null = TRUE), NULL)
+})

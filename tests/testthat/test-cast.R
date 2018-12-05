@@ -62,9 +62,9 @@ test_that("cast_character() works properly", {
   expect_error(cast_scalar_character(c("foo", "bar")), "`.x` must be of length 1, but is of length 2\\.")
   expect_error(cast_nullable_scalar_character(letters[1:3]), "`.x` must be of length 1, but is of length 3\\.")
   expect_error(cast_string(c("foo", "bar")), "`.x` must be of length 1, but is of length 2\\.")
-  expect_identical(cast_string_list(c("foo", "bar")), list("foo", "bar"))
+  expect_identical(c(cast_string_list(c("foo", "bar"))), list("foo", "bar"))
   expect_identical(cast_nullable_string_list(NULL), NULL)
-  expect_identical(cast_nullable_string_list(c("foo", "bar")), list("foo", "bar"))
+  expect_identical(c(cast_nullable_string_list(c("foo", "bar"))), list("foo", "bar"))
   expect_identical(c(cast_string(4)), "4")
 })
 

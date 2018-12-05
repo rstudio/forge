@@ -9,7 +9,7 @@
 \alias{bounded}
 \title{Ensure Conditions on a Value}
 \usage{
-certify(.x, ..., .id = NULL)
+certify(.x, ..., .allow_null = FALSE, .id = NULL)
 
 gt(.l)
 
@@ -26,6 +26,8 @@ bounded(.l = NULL, .u = NULL, .incl_lower = TRUE,
 \item{.x}{The value to be checked.}
 
 \item{...}{Conditions to be checked; should be functions that return TRUE/FALSE.}
+
+\item{.allow_null}{Whether to allow null input.}
 
 \item{.id}{Name given to the input to aid the user in identifying the bad value.}
 
