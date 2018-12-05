@@ -9,7 +9,7 @@
 \alias{between}
 \title{Ensure Conditions on a Value}
 \usage{
-certify(x, ...)
+certify(.x, ...)
 
 gt(.l)
 
@@ -22,7 +22,7 @@ lte(.u)
 between(.l, .u, strict = c("neither", "lower", "upper", "both"))
 }
 \arguments{
-\item{x}{The value to be checked.}
+\item{.x}{The value to be checked.}
 
 \item{...}{Conditions to be checked; should be functions that return TRUE/FALSE.}
 
