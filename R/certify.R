@@ -4,12 +4,21 @@
 #'
 #' @param .x The value to be checked.
 #' @param ... Conditions to be checked; should be functions that return TRUE/FALSE.
+#' @param .allow_null Whether to allow null input.
 #' @param .l Lower bound for the inequality condition.
 #' @param .u Upper bound for the inequality condition.
 #' @param .id Name given to the input to aid the user in identifying the bad value.
 #' @export
-certify <- function(.x, ..., .id = NULL) {
+certify <- function(.x, ..., .allow_null = FALSE, .id = NULL) {
   .id <- resolve_id(rlang::enquo(.x), .id)
+  if (is.null(.x)) {
+    if (!.allow_null) {
+      stop(backticks(.id), " must not be NULL.", call. = FALSE)
+    } else {
+      return(NULL)
+    }
+  }
+
   quos <- rlang::enquos(...)
 
   for (quo in quos) {
