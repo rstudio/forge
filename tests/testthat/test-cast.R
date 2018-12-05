@@ -1,4 +1,4 @@
-context("casts")
+context("cast")
 
 test_that("cast_integer() works properly", {
   expect_identical(c(cast_integer(c(1, 2))), 1:2)

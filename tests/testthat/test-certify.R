@@ -1,4 +1,4 @@
-context("certifications")
+context("certify")
 
 test_that("certify() works with arbitrary functions", {
   expect_identical(c(certify(42, ~ .x > 41)), 42)
