@@ -6,7 +6,7 @@
 \alias{gte}
 \alias{lt}
 \alias{lte}
-\alias{between}
+\alias{bounded}
 \title{Ensure Conditions on a Value}
 \usage{
 certify(.x, ..., .id = NULL)
@@ -19,7 +19,8 @@ lt(.u)
 
 lte(.u)
 
-between(.l, .u, strict = c("neither", "lower", "upper", "both"))
+bounded(.l = NULL, .u = NULL, .incl_lower = FALSE,
+  .incl_upper = FALSE)
 }
 \arguments{
 \item{.x}{The value to be checked.}
@@ -32,7 +33,9 @@ between(.l, .u, strict = c("neither", "lower", "upper", "both"))
 
 \item{.u}{Upper bound for the inequality condition.}
 
-\item{strict}{Whether either of the inequality bounds is strict.}
+\item{.incl_lower}{Whether to include the left endpoint.}
+
+\item{.incl_upper}{Whether to include the right endpoint.}
 }
 \description{
 Checks that the input value satisfies specified conditions

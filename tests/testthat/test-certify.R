@@ -13,10 +13,10 @@ test_that("certify() works with multiple conditions", {
 })
 
 test_that("certify() helper functions work for scalar values", {
-  expect_identical(c(certify(42, between(41, 43))), 42)
-  expect_error(certify(42, between(43, 44)), "Condition `between\\(43, 44\\)` not satisfied for `\\.x`\\.")
-  expect_identical(c(certify(42, between(42, 43))), 42)
-  expect_error(certify(42, between(42, 43, strict = "both")), "Condition `between\\(42, 43, strict = \"both\"\\)` not satisfied for `\\.x`\\.")
+  expect_identical(c(certify(42, bounded(41, 43))), 42)
+  expect_error(certify(42, bounded(43, 44)), "Condition `bounded\\(43, 44\\)` not satisfied for `\\.x`\\.")
+  expect_identical(c(certify(42, bounded(42, 43, .incl_lower = TRUE))), 42)
+  expect_error(certify(42, bounded(41, 42, .incl_upper = FALSE)), "Condition `bounded\\(41, 42, \\.incl_upper = FALSE\\)` not satisfied for `\\.x`\\.")
   expect_identical(c(certify(42, lt(43))), 42)
   expect_error(certify(42, lt(42)), "Condition `lt\\(42\\)` not satisfied for `\\.x`\\.")
   expect_identical(c(certify(42, lte(42))), 42)
@@ -29,8 +29,8 @@ test_that("certify() helper functions work for vector values", {
   expect_identical(c(certify(1:2, gt(0))), 1:2)
   expect_identical(c(certify(1:2, gte(1:2))), 1:2)
   expect_error(certify(1:2, gt(1)), "Condition `gt\\(1\\)` not satisfied for `\\.x`\\.")
-  expect_identical(c(certify(1:5, between(1, 5))), 1:5)
-  expect_error(certify(1:5, between(1, 5, strict = "lower")), "Condition `between\\(1, 5, strict = \"lower\"\\)` not satisfied for `\\.x`\\.")
+  expect_identical(c(certify(1:5, bounded(1, 5))), 1:5)
+  expect_error(certify(1:5, bounded(1, 5, .incl_lower = FALSE)), "Condition `bounded\\(1, 5, \\.incl_lower = FALSE\\)` not satisfied for `\\.x`\\.")
 })
 
 test_that(".id gets carried through forge pipes", {

@@ -66,15 +66,23 @@ lte <- function(.u) {
 }
 
 #' @rdname certify
-#' @param strict Whether either of the inequality bounds is strict.
+#' @param .incl_lower Whether to include the left endpoint.
+#' @param .incl_upper Whether to include the right endpoint.
 #' @export
-between <- function(.l, .u, strict = c("neither", "lower", "upper", "both")) {
-  strict <- match.arg(strict)
-  switch(
-    strict,
-    neither = function(.x) gte(.l)(.x) && lte(.u)(.x),
-    lower = function(.x) gt(.l)(.x) && lte(.u)(.x),
-    upper = function(.x) gte(.l)(.x) && lt(.u)(.x),
-    both = function(.x) gt(.l)(.x) && lt(.u)(.x)
-  )
+bounded <- function(.l = NULL, .u = NULL, .incl_lower = TRUE, .incl_upper = TRUE) {
+  if (is.null(.l) && is.null(.u)) stop("At least one of `.l` or `.u` must be specified.", call. = FALSE)
+
+  lower_bound <- if (!is.null(.l)) {
+    if (.incl_lower) gte(.l) else gt(.l)
+  } else {
+    function() TRUE
+  }
+
+  upper_bound <- if (!is.null(.u)) {
+    if (.incl_upper) lte(.u) else lt(.u)
+  } else {
+    function() TRUE
+  }
+
+  function(.x) lower_bound(.x) && upper_bound(.x)
 }
