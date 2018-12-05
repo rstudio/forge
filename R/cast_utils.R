@@ -26,7 +26,8 @@ verify_length <- function(.x, .n, .id) {
 }
 
 as_nullable_list <- function(.x) {
-  if (is.null(.x)) return(.x) else rlang::as_list(.x)
+  .id <- resolve_id(.x, NULL)
+  if (is.null(.x)) return(.x) else new_forge_stamped(rlang::as_list(.x), .id = .id)
 }
 
 backticks <- function(.s) paste0("`", .s, "`")
