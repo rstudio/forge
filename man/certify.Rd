@@ -9,7 +9,7 @@
 \alias{between}
 \title{Ensure Conditions on a Value}
 \usage{
-certify(.x, ...)
+certify(.x, ..., .id = NULL)
 
 gt(.l)
 
@@ -25,6 +25,8 @@ between(.l, .u, strict = c("neither", "lower", "upper", "both"))
 \item{.x}{The value to be checked.}
 
 \item{...}{Conditions to be checked; should be functions that return TRUE/FALSE.}
+
+\item{.id}{Name given to the input to aid the user in identifying the bad value.}
 
 \item{.l}{Lower bound for the inequality condition.}
 
