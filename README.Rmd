@@ -12,11 +12,12 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(forge)
 ```
 
 # forge
 
-**forge** provides a set of helper functions for input checking and casting. It is intended to be used by package developers to interoperate with other language runtimes, such as Python and JVM languages.
+**forge** provides functions for input checking and casting. It is intended to be used by package developers, especially for interoperating with other runtimes, such as Python and JVM languages. It contains two families of functions, `cast_*` and `certify()`. The former casts a value to a specific type, while the latter ensures certain conditions are met.
 
 ## Installation
 
@@ -34,18 +35,45 @@ devtools::install_github("rstudio/forge")
 
 ## Examples
 
-```{r, message = FALSE}
-library(sparklyr)
-sc <- spark_connect(master = "local")
+Here we demonstrate **forge** with a trivial function:
 
-spark_vector <- function(sc, x) {
-  v <- forge::cast_double_list(x)
-  invoke_new(sc, "org.apache.spark.ml.linalg.DenseVector", v)
+```{r, error = TRUE}
+#' @import forge
+fib <- function(n) {
+  n <- cast_scalar_integer(n) %>%
+    certify(gte(0))
+  
+  if (n <= 2) {
+    if( n >= 0) 1 else 0 
+  } else {
+    Recall(n - 1) + Recall(n - 2)
+  }
 }
-
-spark_vector(sc, 1:3)
+fib(10)
 ```
 
+```{r, error = TRUE}
+fib(1.5)
+```
+
+```{r, error = TRUE}
+fib(-2)
+```
+
+We can also provide arbitrary conditions to `certify()`:
+
+```{r, error = TRUE}
+some_vec <- 1:5
+certify(some_vec,  ~ any(.x < 2))
+```
+
+```{r, error = TRUE}
+certify(some_vec, ~ mean(.x) > 2)
+```
+
+```{r, error = TRUE}
+certify(some_vec, ~ all(.x <= 5), ~ mean(.x) > 3)
+```
 ---
 
 Please note that the 'forge' project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
