@@ -53,8 +53,8 @@ resolve_id <- function(.x, .id) {
     # grab the user input for .x
     (if (rlang::is_symbol(expr)) {
       id_string <- rlang::expr_text(expr)
-      # if the expr is a single line we'll use it as the id
-      if (!grepl("\n", id_string)) id_string else NULL
+      # if the expr is a single line and is not "." we'll use it as the id
+      if (!grepl("\n", id_string) && !identical(id_string, ".")) id_string else NULL
     }) %||%
     ".x"
 }
