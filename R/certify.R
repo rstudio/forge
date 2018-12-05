@@ -21,7 +21,8 @@ certify <- function(.x, ..., .id = NULL) {
       rlang::quo_text(quo),
       "` does not evaluate to a scalar logical for ",
       backticks(.id),
-      "."
+      ".",
+      call. = FALSE
     )
 
     if (!satisfied) stop(
