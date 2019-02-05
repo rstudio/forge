@@ -9,35 +9,34 @@
 \alias{bounded}
 \title{Ensure Conditions on a Value}
 \usage{
-certify(.x, ..., .allow_null = FALSE, .id = NULL)
+certify(x, ..., allow_null = FALSE, id = NULL)
 
-gt(.l)
+gt(l)
 
-gte(.l)
+gte(l)
 
-lt(.u)
+lt(u)
 
-lte(.u)
+lte(u)
 
-bounded(.l = NULL, .u = NULL, .incl_lower = TRUE,
-  .incl_upper = TRUE)
+bounded(l = NULL, u = NULL, incl_lower = TRUE, incl_upper = TRUE)
 }
 \arguments{
-\item{.x}{The value to be checked.}
+\item{x}{The value to be checked.}
 
 \item{...}{Conditions to be checked; should be functions that return TRUE/FALSE.}
 
-\item{.allow_null}{Whether to allow null input.}
+\item{allow_null}{Whether to allow null input.}
 
-\item{.id}{Name given to the input to aid the user in identifying the bad value.}
+\item{id}{Name given to the input to aid the user in identifying the bad value.}
 
-\item{.l}{Lower bound for the inequality condition.}
+\item{l}{Lower bound for the inequality condition.}
 
-\item{.u}{Upper bound for the inequality condition.}
+\item{u}{Upper bound for the inequality condition.}
 
-\item{.incl_lower}{Whether to include the left endpoint.}
+\item{incl_lower}{Whether to include the left endpoint.}
 
-\item{.incl_upper}{Whether to include the right endpoint.}
+\item{incl_upper}{Whether to include the right endpoint.}
 }
 \description{
 Checks that the input value satisfies specified conditions
