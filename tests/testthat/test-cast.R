@@ -101,3 +101,9 @@ test_that("`id` argument works", {
   foo <- 4.5
   expect_error(cast_scalar_integer(foo), "`foo` cannot be casted to an integer vector\\.")
 })
+
+test_that("Calling group generics on stamped values return correct classes", {
+  expect_identical(class(cast_integer(3) + 0.1), "numeric")
+  expect_identical(class(cast_integer(3) + 2L), "integer")
+  expect_identical(class(exp(cast_integer(3))), "numeric")
+})
