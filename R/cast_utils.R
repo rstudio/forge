@@ -42,7 +42,7 @@ get_id <- function(x) attr(x, "id", exact = TRUE)
 Ops.forge_stamped <- function(e1, e2) `attributes<-`(NextMethod(), list())
 
 #' @export
-Math.forge_stamped <- function(x) `attributes<-`(NextMethod(), list())
+Math.forge_stamped <- function(x, ...) `attributes<-`(NextMethod(), list())
 
 #' @export
 Complex.forge_stamped <- function(z) `attributes<-`(NextMethod(), list())
