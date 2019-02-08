@@ -39,6 +39,15 @@ new_forge_stamped <- function(x, id) {
 get_id <- function(x) attr(x, "id", exact = TRUE)
 
 #' @export
+Ops.forge_stamped <- function(e1, e2) `attributes<-`(NextMethod(), list())
+
+#' @export
+Math.forge_stamped <- function(x) `attributes<-`(NextMethod(), list())
+
+#' @export
+Complex.forge_stamped <- function(z) `attributes<-`(NextMethod(), list())
+
+#' @export
 print.forge_stamped <- function(x, ...) {
   print(c(x))
 }
