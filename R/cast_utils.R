@@ -26,12 +26,22 @@ verify_length <- function(x, n, id) {
 }
 
 as_nullable_list <- function(x) {
-  if (is.null(x)) return(x) else rlang::as_list(x)
+  id <- resolve_id(x, NULL)
+  if (is.null(x)) return(x) else new_forge_stamped(rlang::as_list(x), id = id)
 }
 
 backticks <- function(.s) paste0("`", .s, "`")
 
+new_forge_stamped <- function(x, id) {
+  structure(x, id = id, class = c("forge_stamped", class(x)))
+}
+
 get_id <- function(x) attr(x, "id", exact = TRUE)
+
+#' @export
+print.forge_stamped <- function(x, ...) {
+  print(c(x))
+}
 
 resolve_id <- function(x, id) {
   expr <- rlang::quo_squash(x)
@@ -39,6 +49,8 @@ resolve_id <- function(x, id) {
 
   # provided id has precedence
   id %||%
+    # if x is the output of another forge function, get the id
+    (if (inherits(x, "forge_stamped")) get_id(x)) %||%
     # grab the user input for x
     (if (rlang::is_symbol(expr)) {
       id_string <- rlang::expr_text(expr)

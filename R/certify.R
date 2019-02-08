@@ -44,7 +44,7 @@ certify <- function(x, ..., allow_null = FALSE, id = NULL) {
     )
   }
 
-  x
+  new_forge_stamped(x, id = id)
 }
 
 #' @rdname certify

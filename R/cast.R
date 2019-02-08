@@ -40,7 +40,7 @@ cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id =
     call. = FALSE
   )
 
-  rlang::as_integer(x)
+  new_forge_stamped(rlang::as_integer(x), id = id)
 }
 
 #' @rdname cast
@@ -92,7 +92,7 @@ cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id = 
     call. = FALSE
   )
 
-  rlang::as_double(x)
+  new_forge_stamped(rlang::as_double(x), id = id)
 }
 
 #' @rdname cast
@@ -138,7 +138,7 @@ cast_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id
   x <- if (rlang::is_bare_list(x)) rlang::flatten_chr(x) else x
   verify_length_na(x, n, allow_na, id = id)
 
-  as.character(x)
+  new_forge_stamped(as.character(x), id = id)
 }
 
 #' @rdname cast
@@ -199,7 +199,7 @@ cast_logical <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id =
   if (is.null(x) && allow_null) return(NULL) else verify_length_na(x, n, allow_na, id)
   x <- if (rlang::is_bare_list(x)) rlang::flatten_lgl(x) else x
   if (!is.logical(x)) stop(backticks(id), " must be a logical vector.")
-  x
+  new_forge_stamped(x, id = id)
 }
 
 #' @rdname cast
@@ -250,7 +250,7 @@ cast_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE, id = N
                           call. = FALSE)
 
   if (rlang::is_na(x)) {
-    if (allow_na) return(x) else stop(backticks(id), " must not be NA.", call. = FALSE)
+    if (allow_na) return(new_forge_stamped(x, id = id)) else stop(backticks(id), " must not be NA.", call. = FALSE)
   }
 
   if (rlang::is_null(x)) {
@@ -259,7 +259,7 @@ cast_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE, id = N
 
   casted <- cast(x)
 
-  if (casted %in% choices) casted else
+  if (casted %in% choices) new_forge_stamped(casted, id = id) else
     stop(backticks(id), " must be one of ", paste0(choices, collapse = ", "), ".",
          call. = FALSE)
 }
