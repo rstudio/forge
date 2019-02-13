@@ -39,3 +39,19 @@ test_that("certify() allow_null argument works", {
                "`x` must not be NULL\\.")
   expect_identical(certify(NULL, bounded(1, 3), allow_null = TRUE), NULL)
 })
+
+test_that("id gets carried through forge pipes", {
+  library(magrittr)
+  foo <- 42
+  expect_error(
+    cast_scalar_integer(foo, return_id = TRUE) %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `foo`\\."
+  )
+
+  expect_error(
+    cast_scalar_integer(foo, id = "bar", return_id = TRUE) %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `bar`\\."
+  )
+})
