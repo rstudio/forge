@@ -33,25 +33,25 @@ test_that("certify() helper functions work for vector values", {
   expect_error(certify(1:5, bounded(1, 5, incl_lower = FALSE)), "Condition `bounded\\(1, 5, incl_lower = FALSE\\)` not satisfied for `x`\\.")
 })
 
-test_that("id gets carried through forge pipes", {
-  library(magrittr)
-  foo <- 42
-  expect_error(
-    cast_scalar_integer(foo) %>%
-      certify(gt(42)),
-    "Condition `gt\\(42\\)` not satisfied for `foo`\\."
-  )
-
-  expect_error(
-    cast_scalar_integer(foo, id = "bar") %>%
-      certify(gt(42)),
-    "Condition `gt\\(42\\)` not satisfied for `bar`\\."
-  )
-})
-
 test_that("certify() allow_null argument works", {
   my_null <- NULL
   expect_error(cast_nullable_double_list(my_null) %>% certify(bounded(1, 3)),
                "`x` must not be NULL\\.")
   expect_identical(certify(NULL, bounded(1, 3), allow_null = TRUE), NULL)
+})
+
+test_that("id gets carried through forge pipes", {
+  library(magrittr)
+  foo <- 42
+  expect_error(
+    cast_scalar_integer(foo, return_id = TRUE) %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `foo`\\."
+  )
+
+  expect_error(
+    cast_scalar_integer(foo, id = "bar", return_id = TRUE) %>%
+      certify(gt(42)),
+    "Condition `gt\\(42\\)` not satisfied for `bar`\\."
+  )
 })

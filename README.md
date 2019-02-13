@@ -37,7 +37,7 @@ Here we demonstrate **forge** with a trivial function:
 ``` r
 #' @import forge
 fib <- function(n) {
-  n <- cast_scalar_integer(n) %>%
+  n <- cast_scalar_integer(n, return_id = TRUE) %>%
     certify(gte(0))
   
   if (n <= 2) {
