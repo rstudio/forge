@@ -9,7 +9,7 @@
 \alias{bounded}
 \title{Ensure Conditions on a Value}
 \usage{
-certify(x, ..., allow_null = FALSE, id = NULL)
+certify(x, ..., allow_null = FALSE, id = NULL, return_id = FALSE)
 
 gt(l)
 
@@ -29,6 +29,9 @@ bounded(l = NULL, u = NULL, incl_lower = TRUE, incl_upper = TRUE)
 \item{allow_null}{Whether to allow null input.}
 
 \item{id}{Name given to the input to aid the user in identifying the bad value.}
+
+\item{return_id}{Whether to return the ID as an attribute. This should only be set to \code{TRUE}
+when piping the result to another forge function. Defaults to \code{FALSE}.}
 
 \item{l}{Lower bound for the inequality condition.}
 

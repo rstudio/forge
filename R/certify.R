@@ -8,8 +8,10 @@
 #' @param l Lower bound for the inequality condition.
 #' @param u Upper bound for the inequality condition.
 #' @param id Name given to the input to aid the user in identifying the bad value.
+#' @param return_id Whether to return the ID as an attribute. This should only be set to \code{TRUE}
+#'  when piping the result to another forge function. Defaults to \code{FALSE}.
 #' @export
-certify <- function(x, ..., allow_null = FALSE, id = NULL) {
+certify <- function(x, ..., allow_null = FALSE, id = NULL, return_id = FALSE) {
   id <- resolve_id(rlang::enquo(x), id)
   if (is.null(x)) {
     if (!allow_null) {
@@ -44,7 +46,7 @@ certify <- function(x, ..., allow_null = FALSE, id = NULL) {
     )
   }
 
-  x
+  maybe_set_id(x, id, return_id)
 }
 
 #' @rdname certify

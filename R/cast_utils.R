@@ -25,8 +25,8 @@ verify_length <- function(x, n, id) {
   )
 }
 
-as_nullable_list <- function(x) {
-  if (is.null(x)) return(x) else rlang::as_list(x)
+as_nullable_list <- function(x, id, return_id) {
+  if (is.null(x)) return(x) else maybe_set_id(rlang::as_list(x), id, return_id)
 }
 
 backticks <- function(.s) paste0("`", .s, "`")
@@ -39,6 +39,8 @@ resolve_id <- function(x, id) {
 
   # provided id has precedence
   id %||%
+    # check for `forge_id` attribute
+    attr(x, "forge_id", exact = TRUE) %||%
     # grab the user input for x
     (if (rlang::is_symbol(expr)) {
       id_string <- rlang::expr_text(expr)
@@ -46,4 +48,8 @@ resolve_id <- function(x, id) {
       if (!grepl("\n", id_string) && !identical(id_string, ".")) id_string else NULL
     }) %||%
     "x"
+}
+
+maybe_set_id <- function(x, id, return_id) {
+  if (return_id) structure(x, forge_id = id) else x
 }
