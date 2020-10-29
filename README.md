@@ -52,7 +52,7 @@ fib(10)
 
 ``` r
 fib(1.5)
-#> Error: `n` cannot be casted to an integer vector.
+#> Error: `n` cannot be cast to an integer vector.
 ```
 
 ``` r
