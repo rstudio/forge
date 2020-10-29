@@ -38,7 +38,7 @@ cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id =
   verify_length_na(x, n, allow_na, id = id)
 
   if (!rlang::is_integerish(x)) stop(
-    backticks(id), " cannot be casted to an integer vector.",
+    backticks(id), " cannot be cast to an integer vector.",
     call. = FALSE
   )
 
@@ -90,7 +90,7 @@ cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id = 
   verify_length_na(x, n, allow_na, id = id)
 
   if (!rlang::is_double(x) && !rlang::is_integerish(x)) stop(
-    backticks(id), " cannot be casted to a double vector.",
+    backticks(id), " cannot be cast to a double vector.",
     call. = FALSE
   )
 
