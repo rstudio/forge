@@ -1,4 +1,4 @@
-# forge (development version)
+# forge 0.2.1
 
 - Casting helpers no longer emit lifecycle warnings with current rlang releases.
 - Fixes for R CMD check with R 4.6.0.

@@ -1,7 +1,7 @@
 Package: forge
 Type: Package
 Title: Casting Values into Shape
-Version: 0.2.0.9000
+Version: 0.2.1
 Authors@R: c(
   person("Kevin", "Kuo", role = c("aut"), comment = c(ORCID = "0000-0001-7803-7901")),
   person("Tomasz", "Kalinowski", role = c("cre"), email = "tomasz@posit.co")
