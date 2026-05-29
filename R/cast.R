@@ -42,7 +42,7 @@ cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id =
     call. = FALSE
   )
 
-  maybe_set_id(rlang::as_integer(x), id, return_id)
+  maybe_set_id(as.integer(x), id, return_id)
 }
 
 #' @rdname cast
@@ -94,7 +94,7 @@ cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id = 
     call. = FALSE
   )
 
-  maybe_set_id(rlang::as_double(x), id, return_id)
+  maybe_set_id(as.double(x), id, return_id)
 }
 
 #' @rdname cast
@@ -243,10 +243,9 @@ cast_nullable_logical_list <- function(x, n = NULL, allow_na = FALSE, id = NULL,
 #' @export
 cast_choice <- function(x, choices, allow_na = FALSE, allow_null = FALSE, id = NULL, return_id = FALSE) {
   id <- resolve_id(rlang::enquo(x), id)
-  cast <- switch(rlang::type_of(choices),
+  cast <- switch(typeof(choices),
                  integer = cast_scalar_integer,
                  double = cast_scalar_double,
-                 string = cast_scalar_character,
                  character = cast_scalar_character)
   if (is.null(cast)) stop("`choices` must be a vector of numbers or strings.",
                           call. = FALSE)

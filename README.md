@@ -44,9 +44,6 @@ fib <- function(n) {
   }
 }
 fib(10)
-#> Warning: `as_integer()` is deprecated as of rlang 0.4.0
-#> Please use `vctrs::vec_cast()` instead.
-#> This warning is displayed once every 8 hours.
 #> [1] 55
 ```
 
