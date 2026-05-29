@@ -1,9 +1,6 @@
 
-[![Travis build
-status](https://travis-ci.org/rstudio/forge.svg?branch=master)](https://travis-ci.org/rstudio/forge)[![Coverage
-status](https://codecov.io/gh/rstudio/forge/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/forge?branch=master)[![AppVeyor
-build
-status](https://ci.appveyor.com/api/projects/status/github/kevinykuo/forge?branch=master&svg=true)](https://ci.appveyor.com/project/kevinykuo/forge)
+[![Coverage
+status](https://codecov.io/gh/rstudio/forge/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/forge?branch=master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -47,17 +44,22 @@ fib <- function(n) {
   }
 }
 fib(10)
+#> Warning: `as_integer()` is deprecated as of rlang 0.4.0
+#> Please use `vctrs::vec_cast()` instead.
+#> This warning is displayed once every 8 hours.
 #> [1] 55
 ```
 
 ``` r
 fib(1.5)
-#> Error: `n` cannot be casted to an integer vector.
+#> Error:
+#> ! `n` cannot be casted to an integer vector.
 ```
 
 ``` r
 fib(-2)
-#> Error: Condition `gte(0)` not satisfied for `n`.
+#> Error:
+#> ! Condition `gte(0)` not satisfied for `n`.
 ```
 
 We can also provide arbitrary conditions to `certify()`:
@@ -75,11 +77,13 @@ certify(some_vec, ~ mean(.x) > 2)
 
 ``` r
 certify(some_vec, ~ all(.x <= 5), ~ mean(.x) > 3)
-#> Error: Condition `~mean(.x) > 3` not satisfied for `some_vec`.
+#> Error:
+#> ! Condition `~mean(.x) > 3` not satisfied for `some_vec`.
 ```
 
------
+------------------------------------------------------------------------
 
 Please note that the ‘forge’ project is released with a [Contributor
-Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
-project, you agree to abide by its terms.
+Code of
+Conduct](https://github.com/rstudio/forge/blob/master/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
