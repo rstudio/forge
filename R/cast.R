@@ -33,7 +33,7 @@ cast_integer <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id =
   id <- resolve_id(rlang::enquo(x), id)
 
   if (is.null(x) && allow_null) return(NULL)
-  x <- if (rlang::is_bare_list(x)) rlang::flatten_int(x) else x
+  x <- if (rlang::is_bare_list(x)) unlist(x, recursive = TRUE) else x
 
   verify_length_na(x, n, allow_na, id = id)
 
@@ -86,7 +86,7 @@ cast_double <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id = 
   id <- resolve_id(rlang::enquo(x), id)
 
   if (is.null(x) && allow_null) return(NULL)
-  x <- if (rlang::is_bare_list(x)) rlang::flatten_dbl(x) else x
+  x <- if (rlang::is_bare_list(x)) unlist(x, recursive = TRUE) else x
   verify_length_na(x, n, allow_na, id = id)
 
   if (!rlang::is_double(x) && !rlang::is_integerish(x)) stop(
@@ -137,7 +137,7 @@ cast_nullable_double_list <- function(x, n = NULL, allow_na = FALSE, id = NULL, 
 cast_character <- function(x, n = NULL, allow_na = FALSE, allow_null = FALSE, id = NULL, return_id = FALSE) {
   id <- resolve_id(rlang::enquo(x), id)
   if (is.null(x) && allow_null) return(NULL)
-  x <- if (rlang::is_bare_list(x)) rlang::flatten_chr(x) else x
+  x <- if (rlang::is_bare_list(x)) unlist(x, recursive = TRUE) else x
   verify_length_na(x, n, allow_na, id = id)
 
   maybe_set_id(as.character(x), id, return_id)

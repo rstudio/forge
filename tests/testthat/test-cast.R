@@ -20,7 +20,10 @@ expect_no_warning <- function(object) {
 test_that("cast functions do not warn", {
   expect_no_warning(cast_integer(c(1, 2)))
   expect_no_warning(cast_integer(1:2, n = 2))
+  expect_no_warning(cast_integer(list(1, 2)))
   expect_no_warning(cast_double(1:2))
+  expect_no_warning(cast_double(list(1, 2)))
+  expect_no_warning(cast_character(list("foo", "bar")))
   expect_no_warning(cast_integer_list(1:3))
   expect_no_warning(cast_choice(2, 1:3))
 })
