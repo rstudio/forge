@@ -3,8 +3,8 @@ Type: Package
 Title: Casting Values into Shape
 Version: 0.2.0
 Authors@R: c(
-  person("Kevin", "Kuo", role = c("aut", "cre"), email = "kevin.kuo@rstudio.com",
-  comment = c(ORCID = "0000-0001-7803-7901"))
+  person("Kevin", "Kuo", role = c("aut"), comment = c(ORCID = "0000-0001-7803-7901")),
+  person("Tomasz", "Kalinowski", role = c("cre"), email = "tomasz@posit.co")
   )
 Description: Helper functions with a consistent interface to coerce and verify
     the types and shapes of values for input checking.
