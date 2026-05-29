@@ -1,7 +1,4 @@
 
-[![Coverage
-status](https://codecov.io/gh/rstudio/forge/branch/master/graph/badge.svg)](https://codecov.io/github/rstudio/forge?branch=master)
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # forge
