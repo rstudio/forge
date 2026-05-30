@@ -1,5 +1,33 @@
 context("cast")
 
+expect_no_warning <- function(object) {
+  old <- getOption("lifecycle_verbosity")
+  options(lifecycle_verbosity = "warning")
+  on.exit(options(lifecycle_verbosity = old), add = TRUE)
+
+  warnings <- character()
+  value <- withCallingHandlers(
+    force(object),
+    warning = function(w) {
+      warnings <<- c(warnings, conditionMessage(w))
+      invokeRestart("muffleWarning")
+    }
+  )
+  expect_identical(warnings, character())
+  value
+}
+
+test_that("cast functions do not warn", {
+  expect_no_warning(cast_integer(c(1, 2)))
+  expect_no_warning(cast_integer(1:2, n = 2))
+  expect_no_warning(cast_integer(list(1, 2)))
+  expect_no_warning(cast_double(1:2))
+  expect_no_warning(cast_double(list(1, 2)))
+  expect_no_warning(cast_character(list("foo", "bar")))
+  expect_no_warning(cast_integer_list(1:3))
+  expect_no_warning(cast_choice(2, 1:3))
+})
+
 test_that("cast_integer() works properly", {
   expect_identical(c(cast_integer(c(1, 2))), 1:2)
   expect_identical(c(cast_integer(42)), 42L)

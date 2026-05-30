@@ -15,8 +15,10 @@ verify_length_na <- function(x, n, allow_na, id) {
 }
 
 verify_length <- function(x, n, id) {
-  n <- if (!identical(length(n), 1L)) stop("`n` must be an integer.", call. = FALSE) else
-    rlang::as_integer(n)
+  if (!identical(length(n), 1L) || !rlang::is_integerish(n) || is.na(n)) {
+    stop("`n` must be an integer.", call. = FALSE)
+  }
+  n <- as.integer(n)
 
   length_x <- length(x)
   if (length_x != n) stop(
@@ -26,7 +28,7 @@ verify_length <- function(x, n, id) {
 }
 
 as_nullable_list <- function(x, id, return_id) {
-  if (is.null(x)) return(x) else maybe_set_id(rlang::as_list(x), id, return_id)
+  if (is.null(x)) return(x) else maybe_set_id(as.list(x), id, return_id)
 }
 
 backticks <- function(.s) paste0("`", .s, "`")
